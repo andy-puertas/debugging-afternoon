@@ -14,7 +14,8 @@ class ShoppingCart extends Component {
                         <h2>{element.title}</h2>
                         <h2>{"$" + element.price + ".00"}</h2>
                         <div className="shopping-cart-button-container">
-                            <button className="shopping-cart-button" onClick={() => this.props.removeFromShoppingCart(index)}>Remove From Shopping Cart</button>
+                            <button className="shopping-cart-button" 
+                                    onClick={() => this.props.removeFromShoppingCart(index)}>Remove From Shopping Cart</button>
                         </div>
                     </div>
                 </div>
@@ -31,10 +32,10 @@ class ShoppingCart extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state);
+    // console.log(state);
     return {
         shoppingCart: state.shoppingCart
     };
 }
 
-export default connect(mapStateToProps)(ShoppingCart);
+export default connect(mapStateToProps, {removeFromShoppingCart})(ShoppingCart);
